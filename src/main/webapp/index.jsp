@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE HTML>
@@ -102,5 +103,6 @@
 <script type="text/javascript" src="js/jquery.responsivemenu.js"></script> 
 <script type="text/javascript" src="js/jquery.easing.1.3.js"></script> 
 <script type="text/javascript" src="js/script.js"></script>
+
 </body>
 </html>

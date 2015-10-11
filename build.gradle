@@ -34,7 +34,7 @@ buildscript {
 // but not support non-jar WebApplicationInitializer scanning.
 // It will cause "No Spring WebApplicationInitializer types detected on classpath"
 gretty {
-  port = 9000
+  port = 8282
   contextPath = '/'
   servletContainer = 'jetty9' //tomcat7 or tomcat8
   // servletContainer = 'tomcat7'  
