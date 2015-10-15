@@ -1,3 +1,5 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
 apply plugin: 'war'
 apply plugin: 'eclipse-wtp'
 apply plugin: 'org.akhikhl.gretty'
@@ -6,17 +8,31 @@ apply plugin: 'org.akhikhl.gretty'
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
 
+war {
+    baseName = 'JournalDevSpringMVC'
+    version = '1.0.0-BUILD-SNAPSHOT'
+}
+
 repositories {
    mavenLocal()
    mavenCentral()
 }
-
-dependencies {
-   providedCompile 'javax.servlet:servlet-api:2.5'
-   compile 'ch.qos.logback:logback-classic:1.1.3'   
-   compile 'org.springframework:spring-webmvc:4.2.1.RELEASE'
-   compile 'org.codehaus.jackson:jackson-mapper-asl:1.9.12'
-   runtime 'javax.servlet:jstl:1.2'
+ 
+dependencies {   
+    compile("org.springframework:spring-context:4.2.1.RELEASE")
+    compile("org.springframework:spring-webmvc:4.2.1.RELEASE")
+    compile("org.aspectj:aspectjrt:1.7.4")
+ 
+    compile("javax.inject:javax.inject:1")
+    compile("javax.servlet:servlet-api:2.5")
+    compile("javax.servlet:jstl:1.2")
+    compile("javax.servlet.jsp:jsp-api:2.0")    
+    compile("org.slf4j:slf4j-api:1.7.5")
+    compile("org.slf4j:jcl-over-slf4j:1.7.5")
+    compile("org.slf4j:slf4j-log4j12:1.7.5")
+    compile("log4j:log4j:1.2.15")
+    compile('org.codehaus.jackson:jackson-mapper-asl:1.9.12')
+    testCompile("junit:junit:4.7") 
 }
 
 //Gretty Embedded Jetty
@@ -35,7 +51,7 @@ buildscript {
 // It will cause "No Spring WebApplicationInitializer types detected on classpath"
 gretty {
   port = 8282
-  contextPath = '/'
+  contextPath = '/enlist'
   servletContainer = 'jetty9' //tomcat7 or tomcat8
   // servletContainer = 'tomcat7'  
 }
@@ -47,7 +63,7 @@ eclipse {
     component {
       
       //define context path, default to project folder name
-      contextPath = '/'
+      contextPath = '/enlist'
       
     }
     
